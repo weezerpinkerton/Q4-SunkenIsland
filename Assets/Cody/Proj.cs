@@ -27,7 +27,7 @@ public class Proj : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == true)
+        if (collision == true && collision.tag != "Enemy")
         {
             Destroy(gameObject);
         }

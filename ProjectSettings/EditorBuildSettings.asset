@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Dario/MainMenu.unity
+    guid: 34fe5140028971848ba5ea08e636cf22
+  - enabled: 1
+    path: Assets/Dario/DarioScene.unity
+    guid: 4efc2878d2c838c45a48b7fcc7d9ba37
+  - enabled: 1
+    path: Assets/Dario/DeathScreen.unity
+    guid: 240749eb630fd9c428af874e0036ec8f
   m_configObjects: {}

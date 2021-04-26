@@ -10,13 +10,18 @@ public class ShooterAI : MonoBehaviour
     public float speedchasing;
     public float speedRetreating;
     public float Stoppingdistance;
+    public float health;
+    public float startinghealth;
 
     public GameObject proj;
     public Transform player;
+    public SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        health = startinghealth;
+        sr = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -45,5 +50,17 @@ public class ShooterAI : MonoBehaviour
         {
             timeBettweenshots -= Time.deltaTime;
         }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public void takedamage(int damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+
+    }
+
 }
