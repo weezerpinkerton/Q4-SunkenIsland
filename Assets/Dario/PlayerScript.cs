@@ -11,10 +11,13 @@ public class PlayerScript : MonoBehaviour
     private Animator an;
     private SpriteRenderer sr;
     bool IsWalking;
-    public int playerHealth = 3;
-    public Image h1;
-    public Image h2;
-    public Image h3;
+    public int playerHealth;
+    public int maxHealth = 5;
+    private Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+    public GameObject heartPrefab;
+    public Transform heartContainer;
 
 
     // Start is called before the first frame update
@@ -23,12 +26,12 @@ public class PlayerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        playerHealth = maxHealth;
 
-        h1.color = Color.red;
-        h2.color = Color.red;
-        h3.color = Color.red;
-
-        playerHealth = 3;
+        for (int i = 0; i <= maxHealth; i++)
+        {
+            hearts[i] = Instantiate(heartPrefab.GetComponent<Image>(), heartContainer);
+        }
     }
 
     // Update is called once per frame
@@ -68,15 +71,43 @@ public class PlayerScript : MonoBehaviour
         {
             PlayerDamage(1);
         }
+        if (collision.tag == "HealthPotion")
+        {
+            PlayerHeal(1);
+            Destroy(collision.gameObject);
+        }
     }
 
     void PlayerDamage(int damage)
     {
         playerHealth -= damage;
-        if (playerHealth == 2) h1.color = Color.black;
-        if (playerHealth == 1) h2.color = Color.black;
-        if (playerHealth == 0) h3.color = Color.black;
-
+        HealthChecker();
     }
 
+    void PlayerHeal(int heal)
+    {
+        playerHealth += heal;
+        HealthChecker();
+    }
+
+    void HealthChecker()
+    {
+        for (int i = 0; i <= playerHealth; i++)
+        {
+            hearts[i].sprite = fullHeart;
+        }
+        if (playerHealth < maxHealth)
+        {
+            for (int i = playerHealth; i < maxHealth; i++)
+            {
+                hearts[i].sprite = emptyHeart;
+
+            }
+
+        }
+    }
 }
+
+       
+
+
