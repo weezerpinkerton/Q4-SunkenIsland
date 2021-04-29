@@ -10,10 +10,9 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator an;
     private SpriteRenderer sr;
-    bool IsWalking;
     public int playerHealth;
     public int maxHealth = 5;
-    private Image[] hearts;
+    private GameObject[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public GameObject heartPrefab;
@@ -30,7 +29,7 @@ public class PlayerScript : MonoBehaviour
 
         for (int i = 0; i <= maxHealth; i++)
         {
-            hearts[i] = Instantiate(heartPrefab.GetComponent<Image>(), heartContainer);
+            hearts[i] = Instantiate(heartPrefab, heartContainer);
         }
     }
 
@@ -94,14 +93,15 @@ public class PlayerScript : MonoBehaviour
     {
         for (int i = 0; i <= playerHealth; i++)
         {
-            hearts[i].sprite = fullHeart;
+            Image hi = hearts[i].GetComponent<Image>();
+            hi.sprite = fullHeart;
         }
         if (playerHealth < maxHealth)
         {
             for (int i = playerHealth; i < maxHealth; i++)
             {
-                hearts[i].sprite = emptyHeart;
-
+                Image hi = hearts[i].GetComponent<Image>();
+                hi.sprite = emptyHeart;
             }
 
         }
