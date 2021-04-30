@@ -16,12 +16,14 @@ public class ShooterAI : MonoBehaviour
     public GameObject proj;
     public Transform player;
     public SpriteRenderer sr;
+    public Rigidbody2D rbEnemy;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         health = startinghealth;
         sr = GetComponent<SpriteRenderer>();
+        rbEnemy = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
