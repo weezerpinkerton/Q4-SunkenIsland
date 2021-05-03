@@ -29,22 +29,22 @@ public class PlayerScript : MonoBehaviour
 
         for (int i = 0; i <= maxHealth; i++)
         {
-            hearts[i] = Instantiate(heartPrefab, heartContainer);
+            hearts[i] = Instantiate(heartPrefab, heartContainer) as GameObject;
         }
     }
-
+  
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * MoveSpeed, Input.GetAxis("Vertical") * MoveSpeed);
         if (rb.velocity != new Vector2(0, 0))
         {
-            IsWalking = true;
+           
             an.SetBool("IsWalking", true);
         }
         else
         {
-            IsWalking = false;
+         
             an.SetBool("IsWalking", false);
 
         }
@@ -80,15 +80,15 @@ public class PlayerScript : MonoBehaviour
     void PlayerDamage(int damage)
     {
         playerHealth -= damage;
-        HealthChecker();
+       //HealthChecker();
     }
 
     void PlayerHeal(int heal)
     {
         playerHealth += heal;
-        HealthChecker();
+       // HealthChecker();
     }
-
+    /*
     void HealthChecker()
     {
         for (int i = 0; i <= playerHealth; i++)
@@ -106,6 +106,7 @@ public class PlayerScript : MonoBehaviour
 
         }
     }
+    */
 }
 
        
