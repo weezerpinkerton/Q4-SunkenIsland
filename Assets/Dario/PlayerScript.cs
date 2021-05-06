@@ -12,12 +12,10 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer sr;
     public int playerHealth;
     public int maxHealth = 5;
-    private GameObject[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    public GameObject heartPrefab;
-    public Transform heartContainer;
 
+    public GameObject[] hearts = new GameObject[7];
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +25,9 @@ public class PlayerScript : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         playerHealth = maxHealth;
 
-        for (int i = 0; i <= maxHealth; i++)
+        for (int i = 0; i <= 6; i++)
         {
-            hearts[i] = Instantiate(heartPrefab, heartContainer) as GameObject;
+            hearts[i].GetComponent<Image>().sprite = fullHeart;
         }
     }
   
@@ -62,6 +60,10 @@ public class PlayerScript : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScreen");
         }
+        if (playerHealth > maxHealth)
+        {
+            playerHealth = maxHealth;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,33 +82,79 @@ public class PlayerScript : MonoBehaviour
     void PlayerDamage(int damage)
     {
         playerHealth -= damage;
-       //HealthChecker();
+       HealthChecker();
     }
 
     void PlayerHeal(int heal)
     {
         playerHealth += heal;
-       // HealthChecker();
+       HealthChecker();
     }
-    /*
+  
     void HealthChecker()
     {
-        for (int i = 0; i <= playerHealth; i++)
+        if (maxHealth == 5)
         {
-            Image hi = hearts[i].GetComponent<Image>();
-            hi.sprite = fullHeart;
-        }
-        if (playerHealth < maxHealth)
-        {
-            for (int i = playerHealth; i < maxHealth; i++)
+            hearts[5].SetActive(false);
+            hearts[6].SetActive(false);
+
+            for (int i = 0; i <= playerHealth; i++)
             {
-                Image hi = hearts[i].GetComponent<Image>();
-                hi.sprite = emptyHeart;
+                hearts[i].GetComponent<Image>().sprite = fullHeart;
+            }
+
+            for (int i = 0; i < maxHealth - playerHealth; i++)
+            {
+                hearts[i].GetComponent<Image>().sprite = emptyHeart;
             }
 
         }
+
+        if (maxHealth == 6)
+        {
+            hearts[5].SetActive(true);
+            switch (playerHealth)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+            }
+
+        }
+        if (maxHealth == 7)
+        {
+            hearts[6].SetActive(true);
+            switch (playerHealth)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+
+
+        }
     }
-    */
+
 }
 
        
