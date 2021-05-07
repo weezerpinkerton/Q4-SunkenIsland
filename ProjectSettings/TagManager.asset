@@ -9,6 +9,7 @@ TagManager:
   - Item
   - HealthPotion
   - HeartCounter
+  - HeartContainer
   layers:
   - Default
   - TransparentFX
