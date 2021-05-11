@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ouch
-  - Enemy
-  - Item
   - HealthPotion
-  - HeartCounter
-  - CollisionMap
+  - HeartContainer
   layers:
   - Default
   - TransparentFX
@@ -19,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
+  - 
   - 
   - 
   - 
