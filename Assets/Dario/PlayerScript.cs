@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public int maxHealth = 5;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public Animator sceneStuff;
 
     public GameObject[] hearts = new GameObject[7];
 
@@ -58,7 +59,7 @@ public class PlayerScript : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            SceneManager.LoadScene("DeathScreen");
+            StartCoroutine(PlayerDeath());
         }
         if (playerHealth > maxHealth)
         {
@@ -74,8 +75,20 @@ public class PlayerScript : MonoBehaviour
         }
         if (collision.tag == "HealthPotion")
         {
-            PlayerHeal(1);
-            Destroy(collision.gameObject);
+            if (playerHealth < maxHealth)
+            {
+                PlayerHeal(1);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (collision.tag == "HeartContainer")
+        {
+            if (maxHealth < 7)
+            {
+                maxHealth++;
+                PlayerHeal(1);
+                Destroy(collision.gameObject);
+            }
         }
     }
 
@@ -98,63 +111,41 @@ public class PlayerScript : MonoBehaviour
             hearts[5].SetActive(false);
             hearts[6].SetActive(false);
 
-            for (int i = 0; i <= playerHealth; i++)
-            {
-                hearts[i].GetComponent<Image>().sprite = fullHeart;
-            }
-
-            for (int i = 0; i < maxHealth - playerHealth; i++)
-            {
-                hearts[i].GetComponent<Image>().sprite = emptyHeart;
-            }
-
         }
 
         if (maxHealth == 6)
         {
             hearts[5].SetActive(true);
-            switch (playerHealth)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-            }
 
         }
         if (maxHealth == 7)
         {
             hearts[6].SetActive(true);
-            switch (playerHealth)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-            }
 
 
         }
+
+        for (int i = 0; i < playerHealth; i++)
+        {
+            hearts[i].GetComponent<Image>().sprite = fullHeart;
+        }
+
+        for (int i = 0; i < maxHealth - playerHealth; i++)
+        {
+            hearts[i].GetComponent<Image>().sprite = emptyHeart;
+        }
+
     }
 
+    IEnumerator PlayerDeath()
+    {
+        
+        sceneStuff.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("DeathScreen");
+    }
+
+  
 }
 
        
