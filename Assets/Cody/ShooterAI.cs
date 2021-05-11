@@ -17,9 +17,11 @@ public class ShooterAI : MonoBehaviour
     public Transform player;
     public SpriteRenderer sr;
     public Rigidbody2D rbEnemy;
+    public BoxCollider2D col;
     // Start is called before the first frame update
     void Start()
     {
+        col = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         health = startinghealth;
         sr = GetComponent<SpriteRenderer>();
@@ -64,5 +66,16 @@ public class ShooterAI : MonoBehaviour
         Debug.Log(health);
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "CollisionMap")
+        {
+            col.isTrigger = true;
 
+        }
+        else
+        {
+            col.isTrigger = false;
+        }
+    }
 }
