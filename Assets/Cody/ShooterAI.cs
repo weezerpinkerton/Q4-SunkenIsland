@@ -15,9 +15,13 @@ public class ShooterAI : MonoBehaviour
 
     public GameObject proj;
     public Transform player;
+
     public SpriteRenderer sr;
     public Rigidbody2D rbEnemy;
     public BoxCollider2D col;
+    public Animator enemy;
+
+    private bool CanMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,22 +30,16 @@ public class ShooterAI : MonoBehaviour
         health = startinghealth;
         sr = GetComponent<SpriteRenderer>();
         rbEnemy = GetComponent<Rigidbody2D>();
+        enemy = GetComponent<Animator>();
+
     }
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > Stoppingdistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speedchasing * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < Stoppingdistance && Vector2.Distance(transform.position, player.position) > retreatdistance)
-        {
-            transform.position = this.transform.position;
-        }
+        Vector2 chase = player.transform.position - enemy.transform.position;
+        Vector2 normalChase = chase.normalized;
 
-        else if (Vector2.Distance(transform.position, player.position) < retreatdistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speedRetreating * Time.deltaTime);
-        }
+            Chase(normalChase);
+        
 
 
         if (timeBettweenshots <= 0)
@@ -58,12 +56,38 @@ public class ShooterAI : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(rbEnemy.velocity.x > 0)
+        {
+            sr.flipX = true;
+        }
+        else if(rbEnemy.velocity.x < 0)
+        {
+            sr.flipX = false;
+        }
     }
 
     public void takedamage(int damage)
     {
         health -= damage;
         Debug.Log(health);
+        CanMove = false;
+
+        StartCoroutine(DamageTake());
+    }
+
+    void Chase(Vector2 move)
+    {
+
+        rbEnemy.velocity = move * speedchasing;
+        enemy.SetBool("IsWalking", true);
+        if (Vector2.Distance(transform.position, player.position) < Stoppingdistance)
+        {
+            rbEnemy.velocity = move * 0;
+            enemy.SetBool("IsWalking", false);
+
+        }
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,5 +101,13 @@ public class ShooterAI : MonoBehaviour
         {
             col.isTrigger = false;
         }
+    }
+
+    IEnumerator DamageTake()
+    {
+        Debug.Log("courotine damage");
+        enemy.SetTrigger("Damage");
+        yield return new WaitForSeconds(.5f);
+
     }
 }
