@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Dario/MainMenu.unity
     guid: 34fe5140028971848ba5ea08e636cf22
   - enabled: 1
+    path: Assets/Dario/TutorialScene.unity
+    guid: 44ff25b4ca3115e498b4177dcb81767c
+  - enabled: 1
     path: Assets/Dario/DarioScene.unity
     guid: 4efc2878d2c838c45a48b7fcc7d9ba37
   - enabled: 1
