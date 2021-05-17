@@ -6,6 +6,10 @@ TagManager:
   tags:
   - HealthPotion
   - HeartContainer
+  - HeartCounter
+  - Enemy
+  - Ouch
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public Animator sceneStuff;
+    public int killCount = 0;
 
     public GameObject[] hearts = new GameObject[7];
 
@@ -145,7 +146,10 @@ public class PlayerScript : MonoBehaviour
         SceneManager.LoadScene("DeathScreen");
     }
 
-  
+    public void killEnemy()
+    {
+        killCount++;
+    }
 }
 
        

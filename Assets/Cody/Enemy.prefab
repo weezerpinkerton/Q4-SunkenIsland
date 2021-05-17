@@ -77,7 +77,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.515625, y: 1.3203125}
+  m_Size: {x: 0.546875, y: 1.4140625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -97,18 +97,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retreatdistance: 3
   starttimeBettweenshots: 3
-  speedchasing: 3
+  speedchasing: 2
   speedRetreating: 1
-  Stoppingdistance: 3
+  Stoppingdistance: 2
   health: 2
-  startinghealth: 3
+  startinghealth: 2
   proj: {fileID: 3423846594563022463, guid: 423b71daa619a3d42a3d4b00f64feddc, type: 3}
   player: {fileID: 0}
-  Enemy: {fileID: 0}
-  sr: {fileID: 0}
+  sr: {fileID: 4782323314120664167}
   rbEnemy: {fileID: 1721259903}
   col: {fileID: 0}
   enemy: {fileID: 1721259902}
+  HealthPotion: {fileID: 8344291140202671016, guid: 9a0551bf1c1e4114092013072330e5a8,
+    type: 3}
+  Portal: {fileID: 1827919326170223444, guid: 2fae4e2ff996068469560c1ce1a0b782, type: 3}
 --- !u!61 &4782323314120664152
 BoxCollider2D:
   m_ObjectHideFlags: 0
