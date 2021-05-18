@@ -8,7 +8,7 @@ public class SpawnWavesOfEnemys : MonoBehaviour
     public int RMS;
     public GameObject Enemys;
     public int enemyCount;
-    public int Maxenemys;
+    public int Maxenemys = 5;
 
     public Transform SpawnPoint0;
     public Transform SpawnPoint1;

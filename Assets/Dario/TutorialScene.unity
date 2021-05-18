@@ -19547,6 +19547,11 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 65774306}
+    - target: {fileID: 1827919326170223272, guid: 2fae4e2ff996068469560c1ce1a0b782,
+        type: 3}
+      propertyPath: NextScene
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 1827919326170223444, guid: 2fae4e2ff996068469560c1ce1a0b782,
         type: 3}
       propertyPath: m_Name

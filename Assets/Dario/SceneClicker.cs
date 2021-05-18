@@ -23,4 +23,9 @@ public class SceneClicker : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

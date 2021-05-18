@@ -21,12 +21,8 @@ public class ShooterAI : MonoBehaviour
     public BoxCollider2D col;
     public Animator enemy;
     public GameObject HealthPotion;
-    public GameObject Portal;
     private PlayerScript PlayerScript;
-    private GameObject Spawner;
 
-
-    private bool CanMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +34,6 @@ public class ShooterAI : MonoBehaviour
         enemy = GetComponent<Animator>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
         PlayerScript = PlayerObject.GetComponent<PlayerScript>();
-        Spawner = GameObject.FindGameObjectWithTag("Spawner");
     }
     void Update()
     {
@@ -74,7 +69,7 @@ public class ShooterAI : MonoBehaviour
     {
         health -= damage;
         Debug.Log(health);
-        CanMove = false;
+
         if (health != 0)
         {
             StartCoroutine(DamageTake());
@@ -125,20 +120,6 @@ public class ShooterAI : MonoBehaviour
         PlayerScript.killCount++;
         Debug.Log("enemy killed");
         enemy.SetTrigger("Death");
-
-        if (PlayerScript.killCount == Spawner.GetComponent<SpawnWavesOfEnemys>().Maxenemys)
-        {
-            Instantiate(Portal, transform);
-        }
-        
-        if (PlayerScript.playerHealth < 3)
-        {
-           int chance = Random.Range(1, 10);
-           if (chance < 5)
-            {
-                Instantiate(HealthPotion, transform);
-            }
-        }
         yield return new WaitForSeconds(0.5f);
 
         GameObject.Destroy(gameObject);

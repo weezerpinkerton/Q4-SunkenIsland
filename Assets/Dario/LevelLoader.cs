@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
-    public string scene = "DarioScene";
     public float transitionTime = 1f;
 
     // Update is called once per frame
@@ -18,12 +17,24 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
 
-        StartCoroutine(LoadLevel());
+        StartCoroutine(LoadLevel("DarioScene"));
+
+    }
+    public void LoadCredit()
+    {
+
+        StartCoroutine(LoadLevel("CreditScene"));
+
+    }
+    public void LoadTutorial()
+    {
+
+        StartCoroutine(LoadLevel("TutorialScene"));
 
     }
 
 
-    IEnumerator LoadLevel()
+    IEnumerator LoadLevel(string scene)
     {
         transition.SetTrigger("Start");
 
@@ -31,5 +42,6 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(scene);
     }
+
 
 }

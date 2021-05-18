@@ -16,7 +16,6 @@ public class PlayerScript : MonoBehaviour
     public Sprite emptyHeart;
     public Animator sceneStuff;
     public int killCount = 0;
-
     public GameObject[] hearts = new GameObject[7];
 
     // Start is called before the first frame update
@@ -146,10 +145,6 @@ public class PlayerScript : MonoBehaviour
         SceneManager.LoadScene("DeathScreen");
     }
 
-    public void killEnemy()
-    {
-        killCount++;
-    }
 }
 
        
