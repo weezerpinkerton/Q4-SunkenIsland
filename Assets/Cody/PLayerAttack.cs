@@ -27,10 +27,6 @@ public class PLayerAttack : MonoBehaviour
         
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -48,6 +44,7 @@ public class PLayerAttack : MonoBehaviour
                     Collider2D[] enemystodamage = Physics2D.OverlapCircleAll(AttackPos1.position, attackrange, WISE);
                     for (int i = 0; i < enemystodamage.Length; i++)
                     {
+
                         enemystodamage[i].GetComponent<ShooterAI>().takedamage(damage);
                     }
                 }
@@ -64,6 +61,7 @@ public class PLayerAttack : MonoBehaviour
                     Collider2D[] enemystodamage = Physics2D.OverlapCircleAll(AttackPos2.position, attackrange, WISE);
                     for (int i = 0; i < enemystodamage.Length; i++)
                     {
+
                         enemystodamage[i].GetComponent<ShooterAI>().takedamage(damage);
                     }
                 }
@@ -77,6 +75,7 @@ public class PLayerAttack : MonoBehaviour
                 }
                 if (movement.x == 0 && movement.x == 0)
                 {
+
                     Collider2D[] enemystodamage = Physics2D.OverlapCircleAll(AttackPos4.position, attackrange1, WISE);
                     for (int i = 0; i < enemystodamage.Length; i++)
                     {
