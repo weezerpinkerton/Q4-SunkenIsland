@@ -65,6 +65,28 @@ public class PlayerScript : MonoBehaviour
         {
             playerHealth = maxHealth;
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            an.SetTrigger("Fighting");
+            an.SetBool("IsWalking", false);
+            if (rb.velocity.x < 0)
+            {
+                sr.flipX = true;
+            }
+            else if (rb.velocity.x > 0)
+            {
+                sr.flipX = false;
+            }
+            else
+            {
+                sr.flipX = true;
+            }
+
+        }
+        else
+        {
+            an.ResetTrigger("Fighting");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
