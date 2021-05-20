@@ -28,6 +28,7 @@ public class LevelWinner : MonoBehaviour
         if(PlayerScript.killCount >= SpawnerScript.Maxenemys)
         {
             Portal.SetActive(true);
+
         }
     }
 }

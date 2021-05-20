@@ -32,7 +32,10 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel("TutorialScene"));
 
     }
-
+    public void LoadMenu()
+    {
+        StartCoroutine(LoadLevel("MainMenu"));
+    }
 
     IEnumerator LoadLevel(string scene)
     {
