@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: ce9c1ef6cfa62ad43be8128944361e47
+guid: a9eea47c1ddba874cb3c3cfee2352e77
 TextureImporter:
   fileIDToRecycleName:
-    21300000: AttackAnimation_0
-    21300002: AttackAnimation_1
-    21300004: AttackAnimation_2
-    21300006: AttackAnimation_3
+    21300000: zombie_death_0
+    21300002: zombie_death_1
+    21300004: zombie_death_2
+    21300006: zombie_death_3
+    21300008: zombie_death_4
+    21300010: zombie_death_5
+    21300012: zombie_death_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -49,7 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 163
+  spritePixelsToUnits: 180
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,81 +80,141 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackAnimation_0
+      name: zombie_death_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 895
+        x: 60
+        y: 897
+        width: 70
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f463588109b59084ea87fa71e8cc8341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_death_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 899
+        width: 78
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010b6ae4ef549eb41bc69275eb2b4a2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_death_2
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 909
+        width: 117
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46f03f52ebaed344b40c2bd5bbaf6b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_death_3
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 914
+        width: 114
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d333799d1d5c449bdf109077878e95
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_death_4
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 922
         width: 129
-        height: 161
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 086b716c4eda9014ba98c253077b50a6
+      spriteID: 8d34e71bca2b72d42a644b30dcb983b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackAnimation_1
+      name: zombie_death_5
       rect:
         serializedVersion: 2
-        x: 207
-        y: 890
-        width: 143
-        height: 162
+        x: 833
+        y: 920
+        width: 125
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5160f2692c085f94b9aa619b15f9f2c2
+      spriteID: ecebf06abc16c1740a38ce81e96a8059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackAnimation_2
+      name: zombie_death_6
       rect:
         serializedVersion: 2
-        x: 376
-        y: 886
-        width: 160
-        height: 166
+        x: 37
+        y: 786
+        width: 121
+        height: 108
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f7e8d79d96de2f469f8a8b87961b691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AttackAnimation_3
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 890
-        width: 157
-        height: 166
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b849613b499ead429a7f4287c71eedc
+      spriteID: 44da215ae491e0643b09b7f010b257f4
       vertices: []
       indices: 
       edges: []
@@ -159,7 +222,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cfdf99d2f3d751844b06cb895d70beef
+    spriteID: 1b3490cbc5346a64da91c8e0c7ed3c97
     vertices: []
     indices: 
     edges: []

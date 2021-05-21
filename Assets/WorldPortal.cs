@@ -8,6 +8,10 @@ public class WorldPortal : MonoBehaviour
     public string NextScene = "Level1";
     public Animator transition;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetKey("e"))

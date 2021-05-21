@@ -15,13 +15,14 @@ public class ShooterAI : MonoBehaviour
 
     public GameObject proj;
     public Transform player;
-
+    private GameObject PlayerObject;
     public SpriteRenderer sr;
     public Rigidbody2D rbEnemy;
     public BoxCollider2D col;
     public Animator enemy;
+    public GameObject HealthPotion;
+    private PlayerScript PlayerScript;
 
-    private bool CanMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,8 @@ public class ShooterAI : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rbEnemy = GetComponent<Rigidbody2D>();
         enemy = GetComponent<Animator>();
-
+        PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        PlayerScript = PlayerObject.GetComponent<PlayerScript>();
     }
     void Update()
     {
@@ -52,10 +54,6 @@ public class ShooterAI : MonoBehaviour
         {
             timeBettweenshots -= Time.deltaTime;
         }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
 
         if(rbEnemy.velocity.x > 0)
         {
@@ -71,9 +69,15 @@ public class ShooterAI : MonoBehaviour
     {
         health -= damage;
         Debug.Log(health);
-        CanMove = false;
 
-        StartCoroutine(DamageTake());
+        if (health != 0)
+        {
+            StartCoroutine(DamageTake());
+        }
+        if (health <= 0)
+        {
+            StartCoroutine(Death());
+        }
     }
 
     void Chase(Vector2 move)
@@ -110,4 +114,17 @@ public class ShooterAI : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
     }
+
+    IEnumerator Death()
+    {
+        PlayerScript.killCount++;
+        Debug.Log("enemy killed");
+        enemy.SetTrigger("Death");
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject.Destroy(gameObject);
+
+    }
+
+
 }

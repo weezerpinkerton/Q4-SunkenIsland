@@ -372,8 +372,10 @@ MonoBehaviour:
   MoveSpeed: 3
   playerHealth: 5
   maxHealth: 5
-  fullHeart: {fileID: 21300000, guid: 21854dca0c4feb844ba8b708fc995be8, type: 3}
-  emptyHeart: {fileID: 21300002, guid: 21854dca0c4feb844ba8b708fc995be8, type: 3}
+  fullHeart: {fileID: 21300000, guid: a293b7a0c431c9942ace75039c896b9c, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 24c32da1382be2d4c8f5ad994b450b9f, type: 3}
+  sceneStuff: {fileID: 0}
+  killCount: 0
   hearts:
   - {fileID: 0}
   - {fileID: 0}

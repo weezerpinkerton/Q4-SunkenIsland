@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public Animator sceneStuff;
-
+    public int killCount = 0;
     public GameObject[] hearts = new GameObject[7];
 
     // Start is called before the first frame update
@@ -64,6 +64,28 @@ public class PlayerScript : MonoBehaviour
         if (playerHealth > maxHealth)
         {
             playerHealth = maxHealth;
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            an.SetTrigger("Fighting");
+            an.SetBool("IsWalking", false);
+            if (rb.velocity.x < 0)
+            {
+                sr.flipX = true;
+            }
+            else if (rb.velocity.x > 0)
+            {
+                sr.flipX = false;
+            }
+            else
+            {
+                sr.flipX = true;
+            }
+
+        }
+        else
+        {
+            an.ResetTrigger("Fighting");
         }
     }
 
@@ -145,7 +167,6 @@ public class PlayerScript : MonoBehaviour
         SceneManager.LoadScene("DeathScreen");
     }
 
-  
 }
 
        
